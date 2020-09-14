@@ -25,8 +25,20 @@
     }
 
     html {
-      background: repeating-radial-gradient(circle at 5% 95%, transparent 2px, gainsboro 2px 3px, transparent 3px 20px) no-repeat center center fixed;
+      position: relative;
+      background:
+       repeating-radial-gradient(circle at 5% 95%, transparent 2px, lightgrey 2px 3px, transparent 3px 20px) no-repeat center center fixed,
+       linear-gradient(-45deg, thistle, transparent 50%)no-repeat center center fixed,
+       linear-gradient(115deg, turquoise, transparent 60%)no-repeat center center fixed,
+       linear-gradient(-135deg, springgreen, transparent 50%)no-repeat center center fixed;
       background-size: cover;
+    }
+
+    html::before {
+      content:"";
+      position: absolute;
+      background-repeat: repeat;
+
     }
 
     .content {
