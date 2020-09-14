@@ -15,8 +15,15 @@
     *,
     *::before,
     *::after {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
       font-family: sans-serif;
+    }
+
+
+    img {
+      max-width: 100%;
     }
 
     h1,
@@ -24,27 +31,38 @@
       font-family: var(--serif);
     }
 
+    h1 {
+      font-size: 40px;
+    }
+
     html {
       position: relative;
       background:
-       repeating-radial-gradient(circle at 5% 95%, transparent 2px, lightgrey 2px 3px, transparent 3px 20px) no-repeat center center fixed,
-       linear-gradient(-45deg, thistle, transparent 50%)no-repeat center center fixed,
-       linear-gradient(115deg, turquoise, transparent 60%)no-repeat center center fixed,
-       linear-gradient(-135deg, springgreen, transparent 50%)no-repeat center center fixed;
+        repeating-radial-gradient(circle at 5% 95%, transparent 2px, lightgrey 2px 3px, transparent 3px 20px) no-repeat center center fixed,
+        linear-gradient(-45deg, thistle, transparent 50%)no-repeat center center fixed,
+        linear-gradient(115deg, turquoise, transparent 60%)no-repeat center center fixed,
+        linear-gradient(-135deg, springgreen, transparent 50%)no-repeat center center fixed;
       background-size: cover;
+
+      padding-bottom: 60px;
     }
 
     html::before {
-      content:"";
+      content: "";
       position: absolute;
       background-repeat: repeat;
+
+    }
+
+    header {
+      padding: 60px 0;
 
     }
 
     .content {
       display: grid;
       justify-items: center;
-      gap: 25px;
+      gap: 75px 25px;
       margin-right: 25px;
       margin-left: 25px;
       padding: 0;
@@ -79,10 +97,16 @@
       max-width: 400px;
     }
 
-    .frame {
-      position: relative;
+    .inner {
+      display: flex;
+      flex-direction: column;
       width: 100%;
       max-width: 400px;
+    }
+
+
+    .frame {
+      position: relative;
       overflow-x: hidden;
       overflow-y: hidden;
       box-shadow: 2px 2px 6px 0 black;
@@ -130,17 +154,53 @@
     }
 
     .header {
-      width: 100%;
-      max-width: 400px;
-      padding-right: 20px;
+      width: 80%;
+      max-width: 320px;
+      margin-top: 25px;
+      margin-right: 10px;
+      margin-left: 10px;
+      padding: 25px 16px;
+      align-self: flex-end;
+      border-radius: 4px;
+      box-shadow:
+        inset 1px 1px 2px 0 rgba(0, 0, 0, 0.5),
+        4px 4px 6px 2px rgba(0, 0, 0, 0.5);
+      ;
+      background:
+        radial-gradient(circle at 10% 12px, lightgrey, grey 4px, transparent 4px 100%),
+        radial-gradient(circle at calc(10% + 2px) 14px, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2) 4px, transparent 4px 100%),
+        radial-gradient(circle at 90% 12px, lightgrey, grey 4px, transparent 4px 100%),
+        radial-gradient(circle at calc(90% + 2px) 14px, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2) 4px, transparent 4px 100%),
+        radial-gradient(circle at 10% calc(100% - 12px), lightgrey, grey 4px, transparent 4px 100%),
+        radial-gradient(circle at calc(10% + 2px) calc(100% - 10px), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2) 4px, transparent 4px 100%),
+        radial-gradient(circle at 90% calc(100% - 12px), lightgrey, grey 4px, transparent 4px 100%),
+        radial-gradient(circle at calc(90% + 2px) calc(100% - 10px), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2) 4px, transparent 4px 100%);
+      background-color: rgba(255, 255, 255, 0.5);
     }
 
-    img {
-      max-width: 100%;
+    .header>p {
+      margin-top: 5px;
     }
 
-    .frame>img {
-      object-fit: cover;
+    @media only screen and (min-width: 640px) {
+      .header {
+        align-self: flex-start;
+      }
+
+      .content>div:nth-of-type(2n) .header {
+        align-self: flex-end;
+      }
+
+    }
+
+    @media only screen and (min-width: 1080px) {
+      .header {
+        align-self: flex-end;
+      }
+
+      .content>div:nth-of-type(3n - 2) .header {
+        align-self: flex-start;
+      }
     }
 
     .shadow {
@@ -166,7 +226,7 @@
   <div class="content">
     <div>
       <h1>
-        Biodiversity Party
+        Biodiversity Party!
       </h1>
       <p>
         A webpage that explores systematics via art.
@@ -181,61 +241,78 @@
 <body>
   <div class="content">
     <div>
-      <div class="frame">
-        <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599854703/arrangement.jpg" alt="">
-      </div>
-      <div class="header">
-        <h2>Leaf Arrangement</h2>
-        <p>Do leaves have an alternate or opposite layout on a stem?</p>
-      </div>
-    </div>
-    <div>
-      <div class="frame">
-        <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599854703/leaf-type.jpg" alt="">
-      </div>
-      <div class="header">
-        <h2>Leaf Type</h2>
-        <p>Are the leaves simple, or composed of multiple leaflets?</p>
-      </div>
-    </div>
-    <div>
-      <div class="frame">
-        <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599854703/compound-type.jpg" alt="">
-      </div>
-      <div class="header">
-        <h2>Compound Layout</h2>
-        <p>Are the compound leaflets arranged in pinnate (inline) or palmate (fan shaped) layout?</p>
-      </div>
-    </div>
-    <div>
-      <div class="frame">
-        <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599854703/leaf-margin.jpg" alt="">
-      </div>
-      <div class="header">
-        <h2>Leaf Margin</h2>
-        <p>Is the leaf margin lobed, toothed, or entire (smooth)?</p>
-      </div>
-    </div>
-    <div>
-      <div class="frame">
-        <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599854702/venation.jpg" alt="">
-      </div>
-      <div class="header">
-        <h2>Venation</h2>
-        <p>Is the layout of the veins pinnate or palmate?</p>
-      </div>
-    </div>
-    <div>
-      <div class="frame portrait">
-        <div>
-          <div class="shadow">
-            <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599855008/label-cards.jpg" alt="">
-          </div>
+      <div class="inner">
+
+        <div class="frame">
+          <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599854703/arrangement.jpg" alt="">
+        </div>
+        <div class="header">
+          <h2>Leaf Arrangement</h2>
+          <p>Do leaves have an alternate or opposite layout on a stem?</p>
         </div>
       </div>
-      <div class="header">
-        <h2>Labels</h2>
-        <p>Headings for real life!</p>
+    </div>
+    <div>
+      <div class="inner">
+
+        <div class="frame">
+          <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599854703/leaf-type.jpg" alt="">
+        </div>
+        <div class="header">
+          <h2>Leaf Type</h2>
+          <p>Are the leaves simple, or composed of multiple leaflets?</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="inner">
+
+        <div class="frame">
+          <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599854703/compound-type.jpg" alt="">
+        </div>
+        <div class="header">
+          <h2>Compound Layout</h2>
+          <p>Are the compound leaflets arranged in pinnate (inline) or palmate (fan shaped) layout?</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="inner">
+
+        <div class="frame">
+          <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599854703/leaf-margin.jpg" alt="">
+        </div>
+        <div class="header">
+          <h2>Leaf Margin</h2>
+          <p>Is the leaf margin lobed, toothed, or entire (smooth)?</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="inner">
+
+        <div class="frame">
+          <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599854702/venation.jpg" alt="">
+        </div>
+        <div class="header">
+          <h2>Venation</h2>
+          <p>Is the layout of the veins pinnate or palmate?</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="inner">
+        <div class="frame portrait">
+          <div class="scroll">
+            <div class="shadow">
+              <img src="https://res.cloudinary.com/dgzjr8afn/image/upload/v1599855008/label-cards.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="header">
+          <h2>Labels</h2>
+          <p>Headings for real life!</p>
+        </div>
       </div>
     </div>
   </div>
